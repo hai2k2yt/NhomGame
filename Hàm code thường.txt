@@ -1,0 +1,34 @@
+#include <vector>
+#include <windows.h>
+#include <conio.h>
+#include <cstring>
+#include <time.h>
+#include <random>//thư viện
+
+
+#define tên_biến giá_trị : khai báo hằng toàn cục
+enum class:
+
+
+//Hàm trả về tọa độ x và y trên màn hình:
+void gotoxy(int x, int y)
+{
+	COORD coord;
+	coord.X = x;
+	coord.Y = y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
+}
+
+
+//Đặt khả năng hiển thị của con trỏ
+void ShowConsoleCursor(bool showFlag)
+{
+	HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_CURSOR_INFO cursorInfo;
+	GetConsoleCursorInfo(out, &cursorInfo);
+	cursorInfo.bVisible = showFlag;
+	SetConsoleCursorInfo(out, &cursorInfo);
+}
+
+Sleep(ms):trễ mili giây
+
